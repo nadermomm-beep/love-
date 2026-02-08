@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة رومانسية 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+<style>
+html, body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Parisienne', cursive;
+  background: linear-gradient(to bottom, #ffe6f0, #ffcccc);
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;  /* منع الحركة يمين وشمال */
+  position: relative;
+}
+
+/* العنوان */
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff1493;
+}
+
+/* قلوب متحركة من فوق */
+.heart {
+  position: absolute;
+  top: -50px;
+  font-size: 20px;
+  color: #ff69b4;
+  animation: fall linear infinite;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) translateX(0); opacity:1; }
+  100% { transform: translateY(100vh) translateX(30px); opacity:0; }
+}
+
+/* مشغل الأغاني المخصص */
+.audio-player {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  background: rgba(255, 20, 147, 0.2);
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255,20,147,0.5);
+  width: 300px;
+  justify-content: space-between;
+}
+
+.audio-player span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ff1493;
+}
+
+.audio-player button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 15px;
+  background: #ff1493;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.audio-player button:hover {
+  background: #ff69b4;
+}
+
+/* مربعات الصور بنظام flip card */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 350px;
+}
+
+.card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(255,20,147,0.5);
+}
+
+.card-front {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(0deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card-front::before {
+  content: "❤️";
+  font-size: 70px;
+  color: #ff69b4;
+  text-shadow: 0 0 20px #ff1493, 0 0 35px #ff69b4;
+}
+
+/* الجملة تحت القلب على ظهر البطاقة */
+.card-front::after {
+  content: "دوسي هنا يروحي";
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  text-shadow: 0 0 10px #ff69b4;
+}
+
+.card-back {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.card-back span {
+  background: rgba(255,255,255,0.3);
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #000; /* خط أسود */
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* نص أسفل الصور */
+.text-box {
+  margin-top: 30px;
+  background: rgba(255,255,255,0.15);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 400px;
+  font-weight: bold;
+  line-height: 1.6;
+  max-height: 50vh;
+  overflow-y: auto;
+  color: #000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* زرار أسفل النص */
+.enter-btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 20px;
+  background: rgba(138,43,226,0.5);
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+  box-shadow: 0 0 15px rgba(138,43,226,0.6);
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+  background: rgba(138,43,226,0.8);
+  transform: scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<h1>بحبك يا منورتي ❤️</h1>
+
+<!-- قلوب متحركة -->
+<script>
+for(let i=0;i<30;i++){
+  let heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.style.left = Math.random()*100+'vw';
+  heart.style.animationDuration = (3 + Math.random()*5)+'s';
+  heart.style.fontSize = (10 + Math.random()*15)+'px';
+  heart.innerText = '💖';
+  document.body.appendChild(heart);
+}
+</script>
+
+<!-- مشغل الأغاني -->
+<div class="audio-player">
+  <span>أيامي معاك</span>
+  <button onclick="toggleMusic()">تشغيل/إيقاف</button>
+  <audio id="music" autoplay loop>
+    <source src="music.mp3" type="audio/mp3">
+    متصفحك لا يدعم مشغل الصوت.
+  </audio>
+</div>
+
+<div class="cards">
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front" style="background-image:url('front1.jpg');"></div>
+      <div class="card-back" style="background-image:url('back1.jpg');">
+        <span>بحبك بكل تفصيل</span>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front" style="background-image:url('front2.jpg');"></div>
+      <div class="card-back" style="background-image:url('back2.jpg');">
+        <span>الشخص الوحيد اللي بكون معه ع طبيعتي</span>
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="flipCard(this)">
+    <div class="card-inner">
+      <div class="card-front" style="background-image:url('front3-face.jpg');"></div>
+      <div class="card-back" style="background-image:url('back3.jpg');">
+        <span>لما بسرح في عنيكي بنسي الدنيا وما فيها</span>
+      </div> 
+    </div>
+  </div>
+</div>
+
+<div class="text-box">
+هنا تقدر تحط نص طويل رومانسي أو تهاني عيد الميلاد، ويمكن سحبه لأعلى وأسفل بسهولة.
+</div>
+
+<button class="enter-btn" onclick="goNext()">دوسي هنا و متصدعنيش 😂❤</button>
+
+<script>
+function flipCard(card) {
+  const inner = card.querySelector('.card-inner');
+  inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+}
+
+function toggleMusic() {
+  const music = document.getElementById('music');
+  if(music.paused) music.play();
+  else music.pause();
+}
+
+function goNext() {
+  window.location.href = "page3.html";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Manar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Cairo', sans-serif;
+}
+
+body{
+  height:100vh;
+  background:linear-gradient(to bottom,#5a0a5f,#2b0a2e);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  position:relative;
+}
+
+/* قلوب بتنزل */
+.heart{
+  position:absolute;
+  top:-20px;
+  color:pink;
+  font-size:14px;
+  animation:fall linear infinite;
+  pointer-events:none;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh);
+    opacity:0;
+  }
+}
+
+/* الدواير اللي فوق */
+.dots{
+  position:absolute;
+  top:15px;
+  display:flex;
+  gap:8px;
+}
+.dots span{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#ff4fd8;
+  opacity:.9;
+}
+
+/* الكارت */
+.card{
+  width:320px;
+  background:rgba(255,255,255,0.08);
+  border-radius:35px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 0 40px rgba(255,0,200,.4);
+  backdrop-filter: blur(10px);
+  z-index:2;
+}
+
+/* سنة */
+.year{
+  background:#ff3ec9;
+  color:#fff;
+  display:inline-block;
+  padding:6px 25px;
+  border-radius:20px;
+  font-weight:bold;
+  margin-bottom:20px;
+  box-shadow:0 0 15px #ff3ec9;
+}
+
+/* هدية */
+.gift{
+  font-size:55px;
+  margin:15px 0;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* العناوين */
+h1{
+  color:#fff;
+  margin-top:10px;
+  font-size:32px;
+}
+
+.name{
+  font-family:'Great Vibes', cursive;
+  font-size:38px;
+  color:#ffd166;
+  margin:10px 0;
+}
+
+.sub{
+  color:#ddd;
+  margin-bottom:25px;
+  font-size:15px;
+}
+
+/* input */
+input{
+  width:100%;
+  padding:14px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  background:rgba(255,255,255,0.15);
+  color:#fff;
+  text-align:center;
+  font-size:16px;
+  margin-bottom:20px;
+}
+
+/* زرار */
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:25px;
+  background:#ff3ec9;
+  color:#fff;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 20px #ff3ec9;
+  transition:.3s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<!-- الدواير -->
+<div class="dots">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<div class="card">
+  <div class="year">✨ 2026 ✨</div>
+
+  <div class="gift">🎁</div>
+
+  <h1>Happy Birthday</h1>
+  <div class="name">Manar</div>
+
+  <div class="sub">النهارده عيد ميلادك يعسل 🧁</div>
+
+  <input type="password" id="password" placeholder="حطي الباسورد يا قلبي">
+
+  <button onclick="checkPassword()">دوسي هنا بقى متوجعيش دماغنا 😂❤️</button>
+</div>
+
+<script>
+/* قلوب */
+for(let i=0;i<25;i++){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.animationDuration=(4+Math.random()*6)+"s";
+  heart.style.fontSize=(10+Math.random()*10)+"px";
+  document.body.appendChild(heart);
+}
+
+/* باسورد */
+function checkPassword(){
+  const pass=document.getElementById("password").value;
+
+  if(pass==="1234"){   // غير الباسورد هنا
+    window.location.href="page1.html";
+  }else{
+    alert("الباسورد غلط يا قلبي 😅");
+  }
+}
+</script>
+
+</body>
+</html>

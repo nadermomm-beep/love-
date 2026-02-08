@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>صفحة رومانسية</title>
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Parisienne', cursive;
+    background: linear-gradient(to bottom, #ff7f7f, #ffe6e6);
+    color: #fff;
+    overflow-y: scroll;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 5px #ff69b4;
+  }
+
+  .date {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ff1493;
+    text-shadow: 1px 1px 3px #fff;
+  }
+
+  .video-box {
+    width: 90%;
+    max-width: 550px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .video-box video {
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+  }
+
+  .sound-btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(138,43,226,0.5);
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(138,43,226,0.6);
+    transition: all 0.3s ease;
+  }
+
+  .sound-btn:hover {
+    background: rgba(138,43,226,0.8);
+    transform: scale(1.05);
+  }
+
+  .big-box {
+    width: 90%;
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 2;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+    text-align: right;
+    color: #000; /* خط أسود */
+    font-weight: bold; /* عريض */
+  }
+
+  .enter-btn {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(138,43,226,0.4);
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    box-shadow: 0 0 15px rgba(138,43,226,0.6);
+    transition: all 0.3s ease;
+  }
+
+  .enter-btn:hover {
+    background: rgba(138,43,226,0.7);
+    transform: scale(1.05);
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    color: #d8baff;
+    animation: floatHeart linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes floatHeart {
+    0% { transform: translateY(-50px); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="title">حكايتنا بدأت من ❤️</div>
+<div class="date">🫂✨4 / 2 / 2023✨🫂</div>
+
+<div class="video-box">
+  <video id="myVideo" autoplay muted loop playsinline>
+    <source src="video.mp4" type="video/mp4">
+    متصفحك مش بيدعم تشغيل الفيديو.
+  </video>
+  <button class="sound-btn" onclick="playVideo()">🔊 شغل الصوت</button>
+</div>
+
+<div class="big-box">
+عيد ميلاد بنتي وحبيبتي  
+وكل ما ليا حبيت أقولك كام حاجة كده  
+تاني عيد ميلاد ليكي يعدي واحنا مع بعض وانا معايا أفضل وأحن حبيب في الدنيا كلها  
+
+أول حاجة كده أنا عندي كلام كتير أقولـهولك  
+عايز أقولك إنك إنتي أحلى حاجة حصلت في حياتي  
+وأجمل صدفة في حياتي  
+أول مرة اتكلمنا فيها  
+والسنة والشهر واليوم  
+وكل كلمة كانت بيني وبينك  
+كل ده هفضل فاكره ومش ناسيه أبدًا  
+
+كل سنة وانتي غيرهم  
+كل سنة وانتي ترجمة لكل حاجة بتحصل في حياتي  
+كل سنة وانتي حاجة بعجز عن وصفها  
+كل سنة واحنا سند وضهر لبعض  
+
+ومتزعليش مني لو بقولك اعملي كده ومتعمليش كده  
+ده والله خوفًا عليكي يا نور عيني  
+إنتي أجمل وأحسن واحدة في الدنيا  
+ومطلعتش غير بيكي من وسط ناس كتير أوي  
+
+وانا مش ندمان ولا هندم إني اخترتك شريكة حياتي  
+نفسي أوريكي قد إيه حبي ليكي  
+وقد إيه ممكن أضحي علشانك  
+علشان تفضلي معايا دايمًا  
+
+إنتي مش عادية  
+إنتي الأمان كله  
+صوتك هو المكان اللي بستريح فيه  
+لقيت نفسي فيكي  
+وفي كل تفاصيلك  
+
+بحبك لأنك بتفهميني من غير ما أتكلم  
+وبتطمنيني من غير ما أشرح  
+بحبك لأنك سبب ضحكتي وهدوئي  
+وبحبك لأنك الحياة اللي كنت مستنيها  
+
+معاكي ألف خناقة  
+ولا ضحكة واحدة مع غيرك  
+وخايف أخسرك  
+وبعمل كل حاجة علشان نكمل سوا  
+
+انهارده يوم مش عادي  
+انهارده عيد ميلادك  
+يا أحلى وأجمل بنوتة في الدنيا  
+ربنا يخلي ضحكتك دايمًا منورة وشك  
+ويخليني دايمًا سبب سعادتك  
+
+كل سنة وانتي قلبي  
+كل سنة وانتي حياتي  
+كل سنة وانتي معايا  
+وعقبال سنين كتير واحنا سوا  
+يا روح قلبي ♥🫂
+</div>
+
+<button class="enter-btn" onclick="goNext()">دوسي هنا و متصدعنيش 😂❤</button>
+
+<script>
+  function goNext() {
+    window.location.href = "page2.html";
+  }
+
+  function playVideo() {
+    const vid = document.getElementById('myVideo');
+    vid.muted = false;
+    vid.play();
+    document.querySelector('.sound-btn').style.display = 'none';
+  }
+
+  function createHearts(num) {
+    for (let i = 0; i < num; i++) {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💗";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = 6 + Math.random() * 6 + "s";
+      document.body.appendChild(heart);
+    }
+  }
+
+  createHearts(30);
+</script>
+
+</body>
+</html>
